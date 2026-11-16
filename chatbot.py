@@ -53,9 +53,6 @@ if user_prompt:
     except FileNotFoundError as error:
         st.error(str(error))
 
-    except ValueError as error:
-        st.error(str(error))
-
     except Exception:
         logging.exception("Error during RAG chain invocation")
         st.error(

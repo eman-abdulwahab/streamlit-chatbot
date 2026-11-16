@@ -17,10 +17,7 @@ project_dir = Path(__file__).resolve().parent
 
 
 def get_knowledge_dir() -> Path:
-    if not os.getenv("KNOWLEDGE_BASE_DIR"):
-        raise ValueError("Set KNOWLEDGE_BASE_DIR in your .env file.")
-
-    path = Path(os.getenv("KNOWLEDGE_BASE_DIR")).expanduser()
+    path = Path(os.getenv("KNOWLEDGE_BASE_DIR") or "knowledge_base").expanduser()
     if not path.is_absolute():
         path = project_dir / path
 
