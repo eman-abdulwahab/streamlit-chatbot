@@ -1,30 +1,40 @@
-# Generative AI and LangChain Starter
+# PDF RAG Chatbot
 
-This is my starter experimental project for learning and working with generative AI and LangChain. It is a small Streamlit chatbot that uses LangChain to connect to a Groq-hosted language model. I plan to use it as a sandbox for trying ideas and building my understanding of these tools.
+A Streamlit chatbot that uses Groq for responses and retrieves context from local PDFs using LangChain, Hugging Face embeddings, and Chroma.
 
-## Getting Started
-
-Create and activate a virtual environment:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-Install the project dependencies:
-
-```bash
-pip install -r requirements.txt
-```
+## Configuration
 
 Copy `.env.example` to `.env` and add your Groq API key:
 
+```bash
+cp .env.example .env
+```
+
+Configure the values in `.env`:
+
 ```env
 GROQ_API_KEY=your_groq_api_key_here
+USER_NAME=user
+KNOWLEDGE_BASE_DIR=knowledge_base
 ```
 
-Run the app:
+`KNOWLEDGE_BASE_DIR` can be a path relative to the project directory or an absolute path.
+
+## Add PDFs
+
+Place selectable-text PDF files in the configured knowledge-base directory. Scanned or image-only PDFs are not supported because OCR is not enabled.
+
+The knowledge-base directory and generated `vector_store/` are excluded from Git. Keep `.env` and private PDFs out of version control.
+
+## Run
+
+Install the project dependencies and start the app:
 
 ```bash
+python -m pip install -r requirements.txt
 streamlit run chatbot.py
 ```
+
+On the first run, the app downloads the embedding model and creates the local Chroma index in `vector_store/`. Later runs reuse the saved index.
+
+The index does not automatically update when PDFs change. To rebuild it, stop the app, delete `vector_store/`, make sure the PDFs are present, and start the app again.

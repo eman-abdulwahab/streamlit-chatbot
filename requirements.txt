@@ -2,3 +2,12 @@ streamlit
 python-dotenv
 langchain-community
 langchain-groq
+langchain-text-splitters
+langchain-huggingface
+chromadb
+langchain-chroma
+sentence-transformers
+pypdf
+nltk
+numpy
+langchain-classic
