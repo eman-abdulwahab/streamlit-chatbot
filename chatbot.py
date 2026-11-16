@@ -71,9 +71,9 @@ if user_prompt:
 
         with st.chat_message("assistant"):
             st.markdown(assistant_response)
-            st.markdown("**Sources:**")
-            for doc in source_documents:
-                st.markdown(
-                    f"- {doc.metadata.get('source', 'Unknown source')} "
-                    f"(page {doc.metadata.get('page_number', 'N/A')})"
-                )
+            # st.markdown("**Sources:**")
+            # for doc in source_documents:
+            #     st.markdown(
+            #         f"- {doc.metadata.get('source', 'Unknown source')} "
+            #         f"(page {doc.metadata.get('page_number', 'N/A')})"
+            #     )

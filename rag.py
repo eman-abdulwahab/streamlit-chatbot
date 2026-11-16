@@ -95,7 +95,7 @@ def create_rag_chain(vector_store: Chroma, llm):
         (
             "system",
             "Answer using the supplied PDF context when it is relevant. "
-            "Cite document-supported claims using the source and page details "
+            "Do not include inline citations in your answer. "
             "shown in the context. If the context does not answer the question, "
             "say so and clearly label any answer based on general knowledge.\n\n"
             "Context:\n{context}",
