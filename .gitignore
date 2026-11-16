@@ -2,6 +2,5 @@
 .venv/
 __pycache__/
 .streamlit/secrets.toml
-knowledge_base/
 vector_store/
 .vscode/

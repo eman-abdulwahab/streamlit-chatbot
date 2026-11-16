@@ -22,9 +22,8 @@ KNOWLEDGE_BASE_DIR=knowledge_base
 
 ## Add PDFs
 
-Place selectable-text PDF files in the configured knowledge-base directory. Scanned or image-only PDFs are not supported because OCR is not enabled.
+By default, the app reads PDFs from the `knowledge_base/` directory. Replace the provided PDF with your own selectable-text PDF, or add one or more PDFs to that directory. If you use a different location, set `KNOWLEDGE_BASE_DIR` in `.env` to that directory's relative or absolute path.
 
-The knowledge-base directory and generated `vector_store/` are excluded from Git. Keep `.env` and private PDFs out of version control.
 
 ## Run
 
